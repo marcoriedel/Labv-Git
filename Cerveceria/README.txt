@@ -1,0 +1,3 @@
+1) En mi version del problema se necesitan cuatro instancias de consumidor para ver el resultado final rapidamente porque crea una cerveza cada un segundo y las pasa a stock de venta cuando llega a 10 unidades. Los consumidores tienen un random entre 1 y 3 cada 2 segundos. 
+2) Tienen que ser synchronized para asegurar el acceso de un solo thread a la seccion compartida, en este caso el stock de cerbezas. 
+3) Solo hay dos formas de instanciar un Thread. extend Thread / implement runnable
