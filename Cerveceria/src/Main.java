@@ -11,7 +11,7 @@ public class Main {
         beerProducer.start();
         beerConsumer.start();
         beerConsumer2.start();
-        beerConsumer3.start();
-        beerConsumer4.start();
+        //beerConsumer3.start();
+        //beerConsumer4.start();
     }
 }

@@ -18,11 +18,11 @@ public class BeerConsumer implements Runnable {
                     int order = ran.nextInt(3) + 1;
                     System.out.println(name+": I want "+order+ " beer.");
                     beerHouse.consumeBeer(order);
-                    try {
+                    /*try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
+                    }*/
                 }else {
                     System.out.println("No More beers for today my friends... ");
                     System.exit(0);

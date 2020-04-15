@@ -1,15 +1,39 @@
 public class BeerHouse {
 
-     int beers;
+     int beers=1;
+     private boolean available = false;
 
-    synchronized public void consumeBeer (int order){
-        this.beers -= order;
-        System.out.println("Beer Stock " +beers);
+     public synchronized void consumeBeer (int order){
 
+         while (!available){
+             try {
+                 wait();
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+         }
+         beers -= order;
+         System.out.println("Beer Stock " + beers);
+         available = true;
+         if(beers <=10){
+             available = false;
+             notifyAll();
+         }
     }
-    synchronized  public void  rechargeBeer (int newBeersAmount){
-        this.beers += newBeersAmount;
-        System.out.println("BeerHouse Stock: "+beers );
+    public synchronized void  rechargeBeer (){
+        while (!available)
+        {
+            beers ++;
+            System.out.println("BeerHouse Stock: "+beers);
+            if(beers >= 100){
+                available=true;
+                notifyAll();
+            }
+
+        }
+
+
+
     }
 
 }
